@@ -20,7 +20,7 @@ function setNodi() {
 function setArchi() {
     // peso archi random 1 : 9
     for (let i = 0; i < numeroArchi; i++) {
-        archi.push({peso: Math.floor(Math.random() * 5 + 1)});
+        archi.push({peso: Math.floor(Math.random() * -5 + 1)});
     }
     // inizio e fine primi 4 archi 
     for (let i = 0; i < numeroNodi - 1; i ++) {
@@ -49,14 +49,15 @@ function calcoloPercorsiMinimi() {
             }
         });
     }
-    // Verifica se ci sono cicli negativi
+    nodi[0].predecessore = 'Origine';
+
     archi.forEach(arco => {
         if (arco.fine.distanza > (arco.peso + arco.inizio.distanza)) {
             console.log("Il grafo contiene un ciclo negativo");
-            return;
+            // se è presente un ciclo negativo esce dalla funzione
+            debugger;
         }
     });
-    nodi[0].predecessore = 'Origine';
 }
 
 setNodi();
