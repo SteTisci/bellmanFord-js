@@ -1,0 +1,53 @@
+body {
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    align-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 100px;
+    flex-direction: column;
+    height: 200px;
+    width: 200px;
+}
+
+.wrapper .container-nodi,
+.wrapper .container-archi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.container-archi label,
+.container-nodi label {
+    margin-bottom: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+
+.container-nodi .numeroNodi,
+.container-archi .numeroArchi {
+    text-align: center;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 40%);
+    height: 25px;
+}
+
+.wrapper .esegui {
+    margin: 10px auto;
+    width: 60%;
+    height: 35px;
+    border-radius: 15px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 40%);
+    cursor: pointer;
+}
