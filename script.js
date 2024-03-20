@@ -1,9 +1,7 @@
-let numeroNodi = 5;
-let numeroArchi = numeroNodi + 2;
-
+const numeroNodi = 10;
+const numeroArchi = numeroNodi + 5;
 const nodi = [];
 const archi = [];
-
 
 function setNodi() {
     //  String.fromCharCode(65 + i) -> A, B, C ... 
@@ -18,24 +16,24 @@ function setNodi() {
 }
 
 function setArchi() {
-    // peso archi random 1 : 9
+    // peso archi random 1 : 7
     for (let i = 0; i < numeroArchi; i++) {
-        archi.push({peso: Math.floor(Math.random() * -5 + 1)});
+        archi.push({peso: Math.floor(Math.random() * 7 + 1)});
     }
-    // inizio e fine primi 4 archi 
+    // inizio e fine primi archi in ordine
     for (let i = 0; i < numeroNodi - 1; i ++) {
         archi[i].inizio = nodi[i];
         archi[i].fine = nodi[i + 1];
     }
-    // arco 5 = inizio E, fine A
+    //inizio ultimoNodo, fine Origine
     archi[numeroNodi - 1].inizio = nodi[numeroNodi - 1];
     archi[numeroNodi - 1].fine = nodi[0];
-    // arco 6 = AD, arco 7 = BE, ecc...
+    // archi non ordinati AD, BE, CF, ecc...
     for (let i = numeroNodi; i < numeroArchi; i ++) {
-        const InizioIndex = i % numeroNodi;
-        const FineIndex = (i + numeroNodi - 3) % numeroNodi;
-        archi[i].inizio = nodi[InizioIndex];
-        archi[i].fine = nodi[FineIndex];
+        const indexInizio = i % numeroNodi;
+        const indexFine = (i + numeroNodi + 3) % numeroNodi;
+        archi[i].inizio = nodi[indexInizio];
+        archi[i].fine = nodi[indexFine];
     }
 }
 
@@ -51,11 +49,11 @@ function calcoloPercorsiMinimi() {
     }
     nodi[0].predecessore = 'Origine';
 
+    // controllo cicli negativi
     archi.forEach(arco => {
         if (arco.fine.distanza > (arco.peso + arco.inizio.distanza)) {
-            console.log("Il grafo contiene un ciclo negativo");
-            // se è presente un ciclo negativo esce dalla funzione
-            debugger;
+            console.error("Errore >> Il Grafo contiene un ciclo negativo!");
+            return;
         }
     });
 }
