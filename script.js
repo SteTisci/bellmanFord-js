@@ -1,11 +1,26 @@
-const numeroNodi = 10;
-const numeroArchi = numeroNodi + 5;
 const nodi = [];
 const archi = [];
 
+function getNodi() {
+    let input = document.querySelector('.numeroNodi');
+    let nodi = input.innerHTML; //  Cannot read properties of null (reading 'innerHTML')
+
+    return nodi;
+}
+
+function getArchi() {
+    let input = document.querySelector('.numeroArchi');
+    let archi = input.innerHTML
+
+    return archi;
+}
+
+let numeroNodi = getNodi();
+let numeroArchi = getArchi();
+
 function setNodi() {
     //  String.fromCharCode(65 + i) -> A, B, C ... 
-    for (let i = 0; i < numeroNodi; i++) {
+    for (let i = 0; i < numeroNodi; i++) {  // Cannot access 'numeroNodi' before initialization
         nodi.push({nome: String.fromCharCode(65 + i)});
     }
     nodi.forEach(nodo => {
@@ -57,9 +72,3 @@ function calcoloPercorsiMinimi() {
         }
     });
 }
-
-setNodi();
-setArchi(); 
-calcoloPercorsiMinimi();
-    
-
