@@ -6,22 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <div class="wrapper">
+        <div class="container-nodi">
+            <label for="numeroNodi">Numero di Nodi</label> <!-- controllo numero nodi e archi  N archi >= N nodi -->
+            <input type="text" class="numeroNodi">
+        </div>
+        <div class="container-archi">
+            <label for="numeroArchi">Numero di Archi</label>
+            <input type="text" class="numeroArchi">
+        </div>    
+        <button class="esegui" onclick='getNodi(), getArchi(), setNodi(), setArchi(), calcolaPercorsiMinimi()' >Calcola</button>
+    </div>
+
     <script>
-        archi.forEach( arco => {
-            console.table(arco);
-        })
-        console.log('\n');
-        nodi.forEach( nodo => {
-            console.table(nodo);
-        }) 
+        
     </script>
 
 </body>
-
-
 
 </html>
