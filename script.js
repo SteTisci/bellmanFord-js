@@ -1,23 +1,10 @@
 const nodi = [];
 const archi = [];
 
-function getNodi() {
-    let input = document.querySelector('.numeroNodi');
-    let nodi = input.innerHTML; //  Cannot read properties of null (reading 'innerHTML')
+let numeroNodi = 10;
+let numeroArchi = 15;
 
-    return nodi;
-}
-
-function getArchi() {
-    let input = document.querySelector('.numeroArchi');
-    let archi = input.innerHTML
-
-    return archi;
-}
-
-let numeroNodi = getNodi();
-let numeroArchi = getArchi();
-
+ 
 function setNodi() {
     //  String.fromCharCode(65 + i) -> A, B, C ... 
     for (let i = 0; i < numeroNodi; i++) {  // Cannot access 'numeroNodi' before initialization
@@ -33,7 +20,7 @@ function setNodi() {
 function setArchi() {
     // peso archi random 1 : 7
     for (let i = 0; i < numeroArchi; i++) {
-        archi.push({peso: Math.floor(Math.random() * 7 + 1)});
+        archi.push({peso: Math.floor(Math.random() * 5 + 1)});
     }
     // inizio e fine primi archi in ordine
     for (let i = 0; i < numeroNodi - 1; i ++) {
@@ -72,3 +59,20 @@ function calcoloPercorsiMinimi() {
         }
     });
 }
+
+function stampaValori() {
+    const div = document.createElement('div');
+    const div1 = document.getElementById('div1');
+    
+    nodi.forEach(nodo => {
+        const p = document.createElement('p');
+        p.innerHTML = 'Nodo ' + nodo.nome + '\t' + nodo.distanza + nodo.predecessore + '\n'
+        div.appendChild(p);
+    })
+    document.body.insertBefore(div, div1);
+}
+
+setNodi();
+setArchi();
+calcoloPercorsiMinimi();
+
