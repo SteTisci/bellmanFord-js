@@ -7,13 +7,13 @@ let numeroArchi = 15;
  
 function setNodi() {
     //  String.fromCharCode(65 + i) -> A, B, C ... 
-    for (let i = 0; i < numeroNodi; i++) {  // Cannot access 'numeroNodi' before initialization
-        nodi.push({nome: String.fromCharCode(65 + i)});
+    for (let i = 0; i < numeroNodi; i++) { 
+        nodi.push({
+            nome: String.fromCharCode(65 + i),
+            distanza: Infinity,
+            predecessore: '',
+        });
     }
-    nodi.forEach(nodo => {
-       nodo.distanza = Infinity;
-       nodo.predecessore = '';
-    });
     nodi[0].distanza = 0;
 }
 
